@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="函数说明符BlueprintAuthorityOnly如果在具有网络权限的计算机（服务器，专用服务器或单人游戏）上运行，此功能只能从Blueprint代码执行,如无网络权限，则该函数将不会从蓝图代码中执行 BlueprintCallable该函数可以在蓝图或关卡蓝图图表中执行 123public:     UFUNCTION(BlueprintCallable, Category &#x3D; &amp;quo">
+<meta property="og:type" content="website">
+<meta property="og:title" content="UFUNCTION宏">
+<meta property="og:url" content="http://example.com/ue4/%E6%8F%92%E4%BB%B6/%E5%B8%B8%E8%A7%81%E7%9A%84%E5%AE%8F-UFUNCTION.html">
+<meta property="og:site_name" content="我的小站">
+<meta property="og:description" content="函数说明符BlueprintAuthorityOnly如果在具有网络权限的计算机（服务器，专用服务器或单人游戏）上运行，此功能只能从Blueprint代码执行,如无网络权限，则该函数将不会从蓝图代码中执行 BlueprintCallable该函数可以在蓝图或关卡蓝图图表中执行 123public:     UFUNCTION(BlueprintCallable, Category &#x3D; &amp;quo">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/ue4/%E6%8F%92%E4%BB%B6/%E5%B8%B8%E8%A7%81%E7%9A%84%E5%AE%8F-UFUNCTION.htm/1627347397118-s6k.png">
+<meta property="og:image" content="http://example.com/ue4/%E6%8F%92%E4%BB%B6/%E5%B8%B8%E8%A7%81%E7%9A%84%E5%AE%8F-UFUNCTION.htm/1627347429740-qwb.png">
+<meta property="og:image" content="http://example.com/ue4/%E6%8F%92%E4%BB%B6/%E5%B8%B8%E8%A7%81%E7%9A%84%E5%AE%8F-UFUNCTION.htm/1627347443276-0ao.png">
+<meta property="og:image" content="http://example.com/ue4/%E6%8F%92%E4%BB%B6/%E5%B8%B8%E8%A7%81%E7%9A%84%E5%AE%8F-UFUNCTION.htm/1627347497083-omg.png">
+<meta property="og:image" content="http://example.com/ue4/%E6%8F%92%E4%BB%B6/%E5%B8%B8%E8%A7%81%E7%9A%84%E5%AE%8F-UFUNCTION.htm/1627347486450-twc.png">
+<meta property="og:image" content="http://example.com/ue4/%E6%8F%92%E4%BB%B6/%E5%B8%B8%E8%A7%81%E7%9A%84%E5%AE%8F-UFUNCTION.htm/1627347519912-2t9.png">
+<meta property="og:image" content="http://example.com/ue4/%E6%8F%92%E4%BB%B6/%E5%B8%B8%E8%A7%81%E7%9A%84%E5%AE%8F-UFUNCTION.htm/1627347543624-7uy.png">
+<meta property="og:image" content="http://example.com/ue4/%E6%8F%92%E4%BB%B6/%E5%B8%B8%E8%A7%81%E7%9A%84%E5%AE%8F-UFUNCTION.htm/1627347567939-viy.png">
+<meta property="og:image" content="http://example.com/ue4/%E6%8F%92%E4%BB%B6/%E5%B8%B8%E8%A7%81%E7%9A%84%E5%AE%8F-UFUNCTION.htm/1627347576909-1t0.png">
+<meta property="og:image" content="http://example.com/ue4/%E6%8F%92%E4%BB%B6/%E5%B8%B8%E8%A7%81%E7%9A%84%E5%AE%8F-UFUNCTION.htm/1627347610310-aie.png">
+<meta property="og:image" content="http://example.com/ue4/%E6%8F%92%E4%BB%B6/%E5%B8%B8%E8%A7%81%E7%9A%84%E5%AE%8F-UFUNCTION.htm/1627347634974-zvx.png">
+<meta property="og:image" content="http://example.com/ue4/%E6%8F%92%E4%BB%B6/%E5%B8%B8%E8%A7%81%E7%9A%84%E5%AE%8F-UFUNCTION.htm/1627347658442-y0w.png">
+<meta property="og:image" content="http://example.com/ue4/%E6%8F%92%E4%BB%B6/%E5%B8%B8%E8%A7%81%E7%9A%84%E5%AE%8F-UFUNCTION.htm/1627347684281-ofs.png">
+<meta property="og:image" content="http://example.com/ue4/%E6%8F%92%E4%BB%B6/%E5%B8%B8%E8%A7%81%E7%9A%84%E5%AE%8F-UFUNCTION.htm/1627347713766-eyi.png">
+<meta property="og:image" content="http://example.com/ue4/%E6%8F%92%E4%BB%B6/%E5%B8%B8%E8%A7%81%E7%9A%84%E5%AE%8F-UFUNCTION.htm/1627347733173-0km.png">
+<meta property="og:image" content="http://example.com/ue4/%E6%8F%92%E4%BB%B6/%E5%B8%B8%E8%A7%81%E7%9A%84%E5%AE%8F-UFUNCTION.htm/1627347763931-2vj.png">
+<meta property="og:image" content="http://example.com/ue4/%E6%8F%92%E4%BB%B6/%E5%B8%B8%E8%A7%81%E7%9A%84%E5%AE%8F-UFUNCTION.htm/1627347789767-9sk.png">
+<meta property="og:image" content="http://example.com/ue4/%E6%8F%92%E4%BB%B6/%E5%B8%B8%E8%A7%81%E7%9A%84%E5%AE%8F-UFUNCTION.htm/1627347816068-hlw.png">
+<meta property="og:image" content="http://example.com/ue4/%E6%8F%92%E4%BB%B6/%E5%B8%B8%E8%A7%81%E7%9A%84%E5%AE%8F-UFUNCTION.htm/1627347840868-pjz.png">
+<meta property="og:image" content="http://example.com/ue4/%E6%8F%92%E4%BB%B6/%E5%B8%B8%E8%A7%81%E7%9A%84%E5%AE%8F-UFUNCTION.htm/1627347864515-yuh.png">
+<meta property="og:image" content="http://example.com/ue4/%E6%8F%92%E4%BB%B6/%E5%B8%B8%E8%A7%81%E7%9A%84%E5%AE%8F-UFUNCTION.htm/1627347892798-eyo.png">
+<meta property="article:published_time" content="2021-08-19T00:58:19.000Z">
+<meta property="article:modified_time" content="2021-08-19T02:05:45.571Z">
+<meta property="article:author" content="Attaboy">
+<meta property="article:tag" content="ue4常见的宏">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/ue4/%E6%8F%92%E4%BB%B6/%E5%B8%B8%E8%A7%81%E7%9A%84%E5%AE%8F-UFUNCTION.htm/1627347397118-s6k.png">
+
+<link rel="canonical" href="http://example.com/ue4/%E6%8F%92%E4%BB%B6/%E5%B8%B8%E8%A7%81%E7%9A%84%E5%AE%8F-UFUNCTION">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : false,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>UFUNCTION宏 | 我的小站
+</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">我的小站</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">23432</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-android">
+
+    <a href="/categories/android/" rel="section"><i class="fa fa-tags fa-fw"></i>Android</a>
+
+  </li>
+        <li class="menu-item menu-item-c++">
+
+    <a href="/categories/cpp/" rel="section"><i class="fa fa-tags fa-fw"></i>C++</a>
+
+  </li>
+        <li class="menu-item menu-item-hormany">
+
+    <a href="/categories/hormony/" rel="section"><i class="fa fa-tags fa-fw"></i>Hormany</a>
+
+  </li>
+        <li class="menu-item menu-item-linux">
+
+    <a href="/categories/linux/" rel="section"><i class="fa fa-tags fa-fw"></i>Linux</a>
+
+  </li>
+        <li class="menu-item menu-item-unreal-engine-4">
+
+    <a href="/categories/ue4/" rel="section"><i class="fa fa-tags fa-fw"></i>Unreal Engine 4</a>
+
+  </li>
+        <li class="menu-item menu-item-unreal-engine-5">
+
+    <a href="/categories/ue5/" rel="section"><i class="fa fa-tags fa-fw"></i>Unreal Engine 5</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+  
+  
+
+          <div class="content page posts-expand">
+            
+
+    
+    
+    
+    <div class="post-block" lang="zh-CN">
+      <header class="post-header">
+
+<h1 class="post-title" itemprop="name headline">UFUNCTION宏
+</h1>
+
+<div class="post-meta">
+  
+  <ul class="breadcrumb">
+          
+            <li><a href="/ue4/">UE4</a></li>
+            <li><a href="/ue4/%E6%8F%92%E4%BB%B6/">插件</a></li>
+            <li>常见的宏-UFUNCTION</li>
+          
+  </ul>
+
+</div>
+
+</header>
+
+      
+      
+      
+      <div class="post-body">
+          <span id="more"></span>
+
+<p>函数说明符<br>BlueprintAuthorityOnly<br>如果在具有网络权限的计算机（服务器，专用服务器或单人游戏）上运行，此功能只能从Blueprint代码执行,如无网络权限，则该函数将不会从蓝图代码中执行</p>
+<p>BlueprintCallable<br>该函数可以在蓝图或关卡蓝图图表中执行</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public: </span><br><span class="line">    UFUNCTION(BlueprintCallable, Category = &quot;Snowing,BlueprintFunc&quot;)</span><br><span class="line">        void BlueprintCallableFunction();</span><br></pre></td></tr></table></figure>
+<p><img src="/ue4/%E6%8F%92%E4%BB%B6/%E5%B8%B8%E8%A7%81%E7%9A%84%E5%AE%8F-UFUNCTION.htm/1627347397118-s6k.png" alt="1627347397118-s6k.png"><br>BlueprintCosmetic<br>此函数为修饰函数而且无法运行在专属服务器上</p>
+<p>BlueprintGetter 修饰自定义的Getter函数专用【例子见UE4入门-常见的宏-UPROPERTY】<br>该函数将用作Blueprint暴露属性的访问器。这个说明符意味着BlueprintPure和BlueprintCallable</p>
+<p>BlueprintSetter 修饰自定义的Setter函数专用【例子见UE4入门-常见的宏-UPROPERTY】<br>此函数将用作Blueprint暴露属性的增变器。这个说明符意味着BlueprintCallable</p>
+<p>BlueprintImplementableEvent<br>此函数可以在蓝图或关卡蓝图图表内进行重载<br>不能修饰private级别的函数，函数在C++代码中不需要实现定义</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public:</span><br><span class="line">    UFUNCTION(BlueprintImplementableEvent, meta = (DisplayName = &quot;Blueprint Implementable Event Function&quot;), Category = &quot;Snowing|BlueprintFunc&quot;)</span><br><span class="line">        float BlueprintImplementableEventFunction(float In_Float);</span><br></pre></td></tr></table></figure>
+<p><img src="/ue4/%E6%8F%92%E4%BB%B6/%E5%B8%B8%E8%A7%81%E7%9A%84%E5%AE%8F-UFUNCTION.htm/1627347429740-qwb.png" alt="1627347429740-qwb.png"><br><img src="/ue4/%E6%8F%92%E4%BB%B6/%E5%B8%B8%E8%A7%81%E7%9A%84%E5%AE%8F-UFUNCTION.htm/1627347443276-0ao.png" alt="1627347443276-0ao.png"></p>
+<p>BlueprintInternalUseOnly<br>表示该函数不应该暴露给最终用户</p>
+<p>BlueprintNativeEvent<br>此函数将由蓝图进行重载，但同时也包含native类的执行。提供一个名称为[FunctionName]_Implementation的函数本体而非[FunctionName];自动生成的代码将包含转换程序,此程序在需要时会调用实施方式</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">// .h文件中的声明</span><br><span class="line">public:</span><br><span class="line">    UFUNCTION(BlueprintNativeEvent, meta = (DisplayName = &quot;Blueprint Native Event Function&quot;), Category = &quot;Snowing|BlueprintFunc&quot;)</span><br><span class="line">        FString BlueprintNativeEventFunction(AActor* In_AActor);</span><br><span class="line"></span><br><span class="line">// .cpp中的定义</span><br><span class="line">FString AActorTest::BlueprintNativeEventFunction_Implementation(AActor* In_AActor)</span><br><span class="line">&#123;</span><br><span class="line">    return In_AActor-&gt;GetName();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="/ue4/%E6%8F%92%E4%BB%B6/%E5%B8%B8%E8%A7%81%E7%9A%84%E5%AE%8F-UFUNCTION.htm/1627347497083-omg.png" alt="1627347497083-omg.png"><br><img src="/ue4/%E6%8F%92%E4%BB%B6/%E5%B8%B8%E8%A7%81%E7%9A%84%E5%AE%8F-UFUNCTION.htm/1627347486450-twc.png" alt="1627347486450-twc.png"><br>BlueprintPure<br>该函数不会以任何方式影响拥有对象，并且可以在蓝图或级别蓝图图表中执行</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">// .h文件中的声明</span><br><span class="line">public:</span><br><span class="line">    UFUNCTION(BlueprintPure, Category = &quot;Snowing|BlueprintFunc&quot;)</span><br><span class="line">        AActor* BlueprintPureFunction();</span><br><span class="line"></span><br><span class="line">// .cpp中的定义</span><br><span class="line">AActor* AActorTest::BlueprintPureFunction()</span><br><span class="line">&#123;</span><br><span class="line">    return this;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="/ue4/%E6%8F%92%E4%BB%B6/%E5%B8%B8%E8%A7%81%E7%9A%84%E5%AE%8F-UFUNCTION.htm/1627347519912-2t9.png" alt="1627347519912-2t9.png"><br>CallInEditor该函数可以在编辑器中通过详细信息面板中的按钮在选定实例中调用<br>Category = TopCategory|SubCategory|Etc指定函数在编辑器中的显示分类层级，| 是分层级的符号<br><img src="/ue4/%E6%8F%92%E4%BB%B6/%E5%B8%B8%E8%A7%81%E7%9A%84%E5%AE%8F-UFUNCTION.htm/1627347543624-7uy.png" alt="1627347543624-7uy.png"><br>Client<br>此函数仅在该函数从属对象所从属的客户端上执行。提供一个名称为[FunctionName]_Implementation的函数主体，而不是[FunctionName]; 自动生成的代码将包含一个转换程序来在需要时调用实现方法</p>
+<p>CustomThunk<br>UnrealHeaderTool（虚幻头文件工具）的代码生成器将不会为此函数生成execFoo转换程序; 可由用户来提供</p>
+<p>Exec<br>此函数可从游戏中的控制台中执行。Exec命令仅在特定类中声明时才产生作用<br>此标记修饰的函数应在可以接受输入的类中，才能正常接受命令</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">//CharacterTest.h</span><br><span class="line">UCLASS()</span><br><span class="line">class UNREALCPPLEARN_API ACharacterTest : public ACharacter</span><br><span class="line">&#123;</span><br><span class="line">GENERATED_BODY()</span><br><span class="line"></span><br><span class="line">public:</span><br><span class="line">// Sets default values for this character&#x27;s properties</span><br><span class="line">ACharacterTest();</span><br><span class="line"></span><br><span class="line">protected:</span><br><span class="line">// Called when the game starts or when spawned</span><br><span class="line">virtual void BeginPlay() override;</span><br><span class="line"></span><br><span class="line">public: </span><br><span class="line">// Called every frame</span><br><span class="line">virtual void Tick(float DeltaTime) override;</span><br><span class="line"></span><br><span class="line">// Called to bind functionality to input</span><br><span class="line">virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;</span><br><span class="line"></span><br><span class="line">UFUNCTION(Exec)</span><br><span class="line">    void ExecFunction();</span><br><span class="line"></span><br><span class="line">UPROPERTY()</span><br><span class="line">    bool IsShow;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">//CharacterTest.cpp</span><br><span class="line">void ACharacterTest::Tick(float DeltaTime)</span><br><span class="line">&#123;</span><br><span class="line">    Super::Tick(DeltaTime);</span><br><span class="line">    if (IsShow)</span><br><span class="line">    &#123;</span><br><span class="line">        FString  TempText = &quot;What is this, WTF&quot;;</span><br><span class="line">        if (GEngine)</span><br><span class="line">        &#123;</span><br><span class="line">            GEngine-&gt;AddOnScreenDebugMessage(-1, 8.f, FColor::Red, TempText);</span><br><span class="line">        &#125;</span><br><span class="line">        UE_LOG(LogTemp, Log, TEXT(&quot;This is ExecFunction------&quot;));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void ACharacterTest::ExecFunction()</span><br><span class="line">&#123;</span><br><span class="line">    IsShow = !IsShow;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="/ue4/%E6%8F%92%E4%BB%B6/%E5%B8%B8%E8%A7%81%E7%9A%84%E5%AE%8F-UFUNCTION.htm/1627347567939-viy.png" alt="1627347567939-viy.png"><br><img src="/ue4/%E6%8F%92%E4%BB%B6/%E5%B8%B8%E8%A7%81%E7%9A%84%E5%AE%8F-UFUNCTION.htm/1627347576909-1t0.png" alt="1627347576909-1t0.png"><br>NetMilticast<br>无论角色的NetOwner如何，该函数都在服务器上本地执行并复制到所有客户端</p>
+<p>Reliable / UnReliable<br>Reliable函数在网络间进行复制，并会忽略带宽或网络错误而被确保送达。仅在与客户端或服务器共同使用时可用<br>UnReliable函数在网络间复制，但可能会由于带宽限制或网络错误而传送失败。仅在与客户端或服务器一起使用时有效</p>
+<p>SealeEvent<br>这个函数不能在子类中重写。 SealedEvent关键字只能用于事件。对于非事件函数，声明它们是static的还是final的来封闭它们</p>
+<p>ServiceRequest / ServiceResponse<br>ServiceRequest函数是一个RPC服务请求<br>ServiceResponse函数是一个RPC服务响应</p>
+<p>Server<br>此函数仅在服务器上执行。提供一个名称为[FunctionName]_Implementation的函数主体，而不是[FunctionName]; 自动生成的代码将包含一个转换程序来在需要时调用实现方法</p>
+<p>WithValidation<br>声明一个名为与main函数相同的附加函数，但将_Validation添加到最后。该函数采用相同的参数，并返回一个布尔值来指示是否应该继续调用主函数<br>元数据说明符<br>用法：UFUNCTION( [函数说明符], meta = (元数据说明符) )<br>AdvancedDisplay=”Parameter1, Parameter2, …”逗号分隔的参数列表将显示为高级引脚（需要UI扩展）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">UFUNCTION(BlueprintCallable, meta = (AdvancedDisplay = &quot;In_FString&quot;), Category = &quot;Snowing|BlueprintFunc&quot;)</span><br><span class="line">    void BlueprintCallableFunction(TArray&lt;FString&gt; In_TArray, UPARAM(Ref)FString&amp; In_FString, float&amp; Out_Float);</span><br></pre></td></tr></table></figure>
+<p><img src="/ue4/%E6%8F%92%E4%BB%B6/%E5%B8%B8%E8%A7%81%E7%9A%84%E5%AE%8F-UFUNCTION.htm/1627347610310-aie.png" alt="1627347610310-aie.png"><br>AdvancedDisplay=N<br>将N替换为数字，N之后的所有参数都将显示为高级引脚（需要UI扩展）。例如。 ‘AdvancedDisplay = 2’会将前两个参数,其他的参数都标记为高级）</p>
+<p>ArrayParm=”Parameter1, Parameter2, …”<br>表示BlueprintCallable函数应使用“调用数组函数”节点，并将列出的参数视为通配符数组属性</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">UFUNCTION(BlueprintCallable, meta = (AdvancedDisplay = &quot;In_FString&quot;, ArrayParm = &quot;In_TArray&quot;), Category = &quot;Snowing|BlueprintFunc&quot;)</span><br><span class="line">    void BlueprintCallableFunction(TArray&lt;FString&gt; In_TArray, UPARAM(Ref)FString&amp; In_FString, float&amp; Out_Float);</span><br></pre></td></tr></table></figure>
+<p><img src="/ue4/%E6%8F%92%E4%BB%B6/%E5%B8%B8%E8%A7%81%E7%9A%84%E5%AE%8F-UFUNCTION.htm/1627347634974-zvx.png" alt="1627347634974-zvx.png"><br>ArrayTypeDependentParams=”Parameter”<br>使用ArrayParm时，此说明符指示一个参数，该参数将确定ArrayParm列表中的所有参数的类型<br><img src="/ue4/%E6%8F%92%E4%BB%B6/%E5%B8%B8%E8%A7%81%E7%9A%84%E5%AE%8F-UFUNCTION.htm/1627347658442-y0w.png" alt="1627347658442-y0w.png"><br>AutoCreateRefTerm=”Parameter1, Parameter2, …”<br>列出的参数虽然通过引用传递，但如果它们的引脚保持断开连接，则会有自动创建的默认参数。这是蓝图的便利功能</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">//.h文件函数声明</span><br><span class="line">UFUNCTION(BlueprintCallable, meta = (AutoCreateRefTerm = &quot;In_Int32&quot;), Category = &quot;Snowing|Editor&quot;)</span><br><span class="line">    uint8 AutoCreateRefTermFunction(UPARAM(Ref) int32&amp; In_Int32);</span><br><span class="line"></span><br><span class="line">//.cpp文件函数定义</span><br><span class="line">uint32 AActorTest::AutoCreateRefTermFunction(UPARAM(Ref) int32&amp; In_Int32)</span><br><span class="line">&#123;</span><br><span class="line">    return fabs(In_Int32);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="/ue4/%E6%8F%92%E4%BB%B6/%E5%B8%B8%E8%A7%81%E7%9A%84%E5%AE%8F-UFUNCTION.htm/1627347684281-ofs.png" alt="1627347684281-ofs.png"><br>BlueprintAutocast<br>仅由Blueprint函数库中的静态BlueprintPure函数使用。 Cast节点将自动添加返回类型和函数的第一个参数的类型</p>
+<p>BlueprintInternalUseOnly<br>这个函数是一个内部的实现细节，用来实现另一个函数或节点。它不会直接暴露在蓝图图表中</p>
+<p>BlueprintProtected<br>该功能只能在蓝图中拥有的对象上调用。它不能在另一个实例上调用</p>
+<p>CallableWithoutWorldContext<br>用于具有WorldContext引脚的BlueprintCallable函数，以指示即使函数的类未实现GetWorld函数也可以调用该函数</p>
+<p>CommutativeAssociativeBinaryOperator=”true”<br>指示BlueprintCallable函数应该使用“Commutative Associative Binary”节点。该节点缺少引脚名称，但具有创建附加输入引脚的“Add Pin”按钮</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">//.h文件函数声明</span><br><span class="line">UFUNCTION(BlueprintPure, meta = (DisplayName = &quot;Add Pin Function&quot;, CommutativeAssociativeBinaryOperator = &quot;true&quot;), Category = &quot;Snowing|Parameters&quot;)</span><br><span class="line">    float CommutativeAssociativeBinaryOperatorFunction(const float A, const float B);</span><br><span class="line"></span><br><span class="line">//.cpp文件行数定义</span><br><span class="line">float AActorTest::CommutativeAssociativeBinaryOperatorFunction(const float A, const float B)</span><br><span class="line">&#123;</span><br><span class="line">    float Result&#123;0.f&#125;;</span><br><span class="line">    Result += A;</span><br><span class="line">    Result += B;</span><br><span class="line"></span><br><span class="line">    return Result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="/ue4/%E6%8F%92%E4%BB%B6/%E5%B8%B8%E8%A7%81%E7%9A%84%E5%AE%8F-UFUNCTION.htm/1627347713766-eyi.png" alt="1627347713766-eyi.png"><br>CompactNodeTitle=”Name”<br>指示BlueprintCallable函数应在紧凑显示模式下显示，并提供在该模式下显示的名称</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">UFUNCTION(BlueprintCallable, meta = (AutoCreateRefTerm = &quot;In_Int32&quot;, CompactNodeTitle = &quot;CompactNodeTitleFunction&quot;), Category = &quot;Snowing|Parameters&quot;)</span><br><span class="line">    int32 AutoCreateRefTermFunction(UPARAM(Ref) int32&amp; In_Int32);</span><br></pre></td></tr></table></figure>
+<p><img src="/ue4/%E6%8F%92%E4%BB%B6/%E5%B8%B8%E8%A7%81%E7%9A%84%E5%AE%8F-UFUNCTION.htm/1627347733173-0km.png" alt="1627347733173-0km.png"><br>CustomStructureParam=”Parameter1, Parameter2, …”<br>列出的参数都被视为通配符。此说明符要求 UFUNCTION 级别说明符 CustomThunk, 这将要求用户提供自定义 exec 函数。在此函数中, 可以检查参数类型, 并根据这些参数类型进行相应的函数调用。不应调用基 UFUNCTION, 如果是, 则应断言或记录错误</p>
+<p>DefaultToSelf<br>对于BlueprintCallable函数，这表示Object属性的默认值应该是节点的自身上下文</p>
+<p>DeprecatedFunction<br>任何对此函数的蓝图引用都会导致编译警告, 告诉用户该函数已被弃用。可以使用 DeprecationMessage 元数据说明符来添加到弃警告消息 (例如, 提供有关替换已弃用的函数的说明)<br>添加这个标记后，在4.18.0引擎中(可能以及后续版本)，蓝图无法查找到被标记的函数</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">UFUNCTION(BlueprintCallable, meta = (DeprecatedFunction, DeprecationMessage = &quot;This is Deprecation Message&quot;), Category = &quot;Snowing|BlueprintFunc&quot;)</span><br><span class="line">    void DeprecatedFunctionFunction();</span><br></pre></td></tr></table></figure>
+<p><img src="/ue4/%E6%8F%92%E4%BB%B6/%E5%B8%B8%E8%A7%81%E7%9A%84%E5%AE%8F-UFUNCTION.htm/1627347763931-2vj.png" alt="1627347763931-2vj.png"><br>DeprecationMessage=”MessageText”<br>如果该函数已被弃用，则在尝试编译使用该函数的Blueprint时，此消息将被添加到标准弃用警告中</p>
+<p>DisplayName=”Blueprint Node Name”<br>蓝图中此节点的名称将替换为此处提供的值，而不是代码生成的名称（在蓝图中搜索被修饰函数也用这里提供的值）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">//.h文件函数声明</span><br><span class="line">UFUNCTION(BlueprintPure, meta = (DisplayName = &quot;Add Pin Function&quot;, CommutativeAssociativeBinaryOperator = &quot;true&quot;), Category = &quot;Snowing|Parameters&quot;)</span><br><span class="line">    float CommutativeAssociativeBinaryOperatorFunction(const float A, const float B);</span><br><span class="line"></span><br><span class="line">//.cpp文件行数定义</span><br><span class="line">float AActorTest::CommutativeAssociativeBinaryOperatorFunction(const float A, const float B)</span><br><span class="line">&#123;</span><br><span class="line">    float Result&#123;0.f&#125;;</span><br><span class="line">    Result += A;</span><br><span class="line">    Result += B;</span><br><span class="line"></span><br><span class="line">    return Result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="/ue4/%E6%8F%92%E4%BB%B6/%E5%B8%B8%E8%A7%81%E7%9A%84%E5%AE%8F-UFUNCTION.htm/1627347789767-9sk.png" alt="1627347789767-9sk.png"><br>ExpandEnumAsExecs=”Parameter”<br>对于BlueprintCallable函数，这表示应该为参数使用的枚举中的每个条目创建一个输入执行引脚。指定的参数必须是由引擎通过UENUM标签识别的枚举类型</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">UENUM()</span><br><span class="line">enum _EnumParam</span><br><span class="line">&#123;</span><br><span class="line">E_1 = 0,</span><br><span class="line">E_2,</span><br><span class="line">E_3</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">UFUNCTION(BlueprintCallable, meta = (ExpandEnumAsExecs = &quot;In_EnumParam&quot;), Category = &quot;Snowing|Parameters&quot;)</span><br><span class="line">    void ExpandEnumAsExecsFunction(_EnumParam In_EnumParam);</span><br></pre></td></tr></table></figure>
+<p><img src="/ue4/%E6%8F%92%E4%BB%B6/%E5%B8%B8%E8%A7%81%E7%9A%84%E5%AE%8F-UFUNCTION.htm/1627347816068-hlw.png" alt="1627347816068-hlw.png"><br>HidePin=”Parameter”<br>对于BlueprintCallable函数，这表示参数引脚应该隐藏在用户的视图中。请注意，每个功能只能有一个参数引脚以这种方式隐藏</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">UFUNCTION(BlueprintCallable, meta = (HidePin = &quot;In_Float&quot;), Category = &quot;Snowing|Parameters&quot;)</span><br><span class="line">    void HidePinFunction(int In_Int, float In_Float, FString In_FString, TArray&lt;AActor*&gt; In_TArray);</span><br></pre></td></tr></table></figure>
+<p><img src="/ue4/%E6%8F%92%E4%BB%B6/%E5%B8%B8%E8%A7%81%E7%9A%84%E5%AE%8F-UFUNCTION.htm/1627347840868-pjz.png" alt="1627347840868-pjz.png"><br>KeyWords=”Set Of Kwywords”<br>指定搜索此函数时可以使用的一组关键字，例如，当放置节点以调用蓝图图形中的函数时</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">UFUNCTION(BlueprintCallable, meta = (HidePin = &quot;In_Float&quot;, KeyWords = &quot;Hidden Parameter Function&quot;), Category = &quot;Snowing|Parameters&quot;)</span><br><span class="line">    void HidePinFunction(int In_Int, float In_Float, FString In_FString, TArray&lt;AActor*&gt; In_TArray);</span><br></pre></td></tr></table></figure>
+<p><img src="/ue4/%E6%8F%92%E4%BB%B6/%E5%B8%B8%E8%A7%81%E7%9A%84%E5%AE%8F-UFUNCTION.htm/1627347864515-yuh.png" alt="1627347864515-yuh.png"><br>Lantent<br>表示潜在的行动。潜在动作具有FLatentActionInfo类型的一个参数，并且该参数由LatentInfo说明符命名</p>
+<p>LatentInfo=”Parameter”<br>对于BlueprintCallable函数，指示哪个参数是LatentInfo参数</p>
+<p>MaterialParameterCollectionFunction<br>对于BlueprintCallable函数，表示应该使用材质替代节点</p>
+<p>NativeBreakFunc<br>对于BlueprintCallable函数，表示该函数应该以与标准的Break Struct节点相同的方式显示</p>
+<p>NotBlueprintThreadSafe<br>仅在Blueprint函数库中有效。该函数将被视为拥有类的一般BlueprintThreadSafe元数据的异常</p>
+<p>ShortToolTip<br>一个简短的工具提示，在完整的工具提示可能是压倒性的一些情况下使用，如父类选择器对话框</p>
+<p>ToolTip<br>覆盖代码注释中自动生成的工具提示</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">UFUNCTION(BlueprintCallable, meta = (ToolTip = &quot;this is tip&quot;), Category = &quot;Snowing|BlueprintFunc&quot;)</span><br><span class="line">    float TipFunction();</span><br></pre></td></tr></table></figure>
+<p><img src="/ue4/%E6%8F%92%E4%BB%B6/%E5%B8%B8%E8%A7%81%E7%9A%84%E5%AE%8F-UFUNCTION.htm/1627347892798-eyo.png" alt="1627347892798-eyo.png"><br>UnsafeDuringActorConstruction这个函数在Actor构造期间调用是不安全的<br>WorldContext=”Parameter”由BlueprintCallable函数使用来指示哪个参数确定操作正在发生的世界</p>
+
+      </div>
+      
+      
+      
+    </div>
+    
+  <ul class="breadcrumb">
+          
+            <li><a href="/ue4/">UE4</a></li>
+            <li><a href="/ue4/%E6%8F%92%E4%BB%B6/">插件</a></li>
+            <li>常见的宏-UFUNCTION</li>
+          
+  </ul>
+
+    
+    
+    
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Attaboy</p>
+  <div class="site-description" itemprop="description">234234</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Attaboy</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
